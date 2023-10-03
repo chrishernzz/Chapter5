@@ -5,13 +5,15 @@
 #include<iostream>
 #include"input (1).h"
 #include"Vector.h"
+#include"List.h"
+#include"ApplicationVectorOrList.h"
 using namespace std;
 
 //prototype
 int menuOption();
 void challenge1();
-//void challenge2();
-//void challenge3();
+void challenge2();
+void challenge3();
 
 int main()
 {
@@ -19,8 +21,8 @@ int main()
 		switch (menuOption()) {
 		case 0: exit(1); break;
 		case 1: challenge1(); break;
-		//case 2: challenge2(); break;
-		//case 3: challenge3(); break;
+		case 2: challenge2(); break;
+		case 3: challenge3(); break;
 		default: cout << "\t\tERROR - Invalid option. Please re-enter."; break;
 		}
 		cout << "\n";
@@ -46,21 +48,21 @@ int menuOption() {
 	return inputInteger("\n\t\tOption: ", 0, 3);
 }
 
-//precondition: going to call my Complex class that has the real number and imaginary number
-//postcondition: going to then call my displayInformation function that will have all the information and the menus as well
+//precondition: going to call my Vector class
+//postcondition: going to then call my mainMenu function that will have all the information and the menus as well
 void challenge1() {
 	Vector menu;
 	menu.mainMenu();
 }
-//precondition: going to call my Rational Class
-//postcondition: going to then displayInformation function so that will give me the information for rational
+//precondition: going to call my List Class
+//postcondition: going to then mainMenu function so that will give me the information for rational
 void challenge2() {
-	//Rational menu;
-	//menu.RationalMenu();
+	List menu;
+	menu.mainMenu();
 }
-//precondition: going to call my Polynomial class
-//postcondition: going to then call my displayInformation function that will have all the information and the menus as well
+//precondition: going to call my ApplicationVectorOrList class
+//postcondition: going to then call my mainMenu function that will have all the information and the menus as well
 void challenge3() {
-	//Polynomial menu;
-	//menu.main();
+	ApplicationVectorOrList menu;
+	menu.mainMenu();
 }

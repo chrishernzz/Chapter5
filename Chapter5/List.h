@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-#include<vector>
+#include<list>
 #include<string>
 #include<fstream>
 #include<algorithm>
@@ -12,32 +12,31 @@ char inputChar(string prompt, string lookup);
 int inputInteger(string prompt, int startRange, int endRange);
 double inputDouble(string prompt, double startRange, double endRange);
 
-class Vector{
+class List{
 private:
-	//calling the student class
-	vector<student> data;
-public: 
-	//defualt constructor that will have the student class default constructor
-	Vector();
+	list<student> data;
+public:
+	//default constructor
+	List();
 
 	//member function to clear data
 	void clearData();
-	//member function to resize
-	void resizeData();
 	//member function to get front element
-	void reserveData();
-	//member function to read file
-	void readFromFile(string& fileName);
+	void resizedData();
+	//member function to read the data
+	void readFromFilePushFront(string& fileName);
+	//memember function to pop the front (delete first element front)
+	void popFrontElement();
+	//member function to print front element
+	void printFrontElement();
+	//member function that now reads the data but push back
+	void readFromFilePushBack(string& fileName);
 	//member function to close file
 	void closeFile(string& filename);
-	//member function to pop back
+	//member function to pop the back (delete last element back)
 	void popBackElement();
-	//member function to get front element
-	void printFrontElement();
 	//member function to get back element
 	void printBackElement();
-	//member function to get the index element
-	void lookForIndex();
 	//member function to get the memory address of the first and last iterator, do it in reverse as well  
 	void beginIterator();
 	void endIterator();
@@ -52,9 +51,11 @@ public:
 	//member function to insert a new name, grade, and gpa after the first element
 	void insertIterator();
 	//member function to get the first data and swap to the other data (new vector) and goin to sort them
-	void swapVector();
-	void sortVector();
+	void swapList();
+	void sortList();
 
-	//member function for main menu
+	//member function to get the size
+	//member function
 	void mainMenu();
 };
+

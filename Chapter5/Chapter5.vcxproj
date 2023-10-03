@@ -127,11 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ApplicationVectorOrList.cpp" />
+    <ClCompile Include="List.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ApplicationVectorOrList.h" />
     <ClInclude Include="input (1).h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>

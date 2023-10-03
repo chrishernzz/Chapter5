@@ -7,7 +7,6 @@ Vector::Vector(){
     //if there are no size avaiable there, then default
     student defaultCon;
 }
-
 //precondition: going to call the data vector
 //postcondition: going to then clear the data vector (make it empty)
 void Vector::clearData(){
@@ -75,6 +74,8 @@ void Vector::readFromFile(string& fileName){
 //postcondition: going to then close the file
 void Vector::closeFile(string& filename){
     ifstream readFile;
+    //open the file
+    readFile.open(filename);
     //closing the file
     readFile.close();
 }
@@ -177,8 +178,9 @@ void Vector::endIterator(){
         system("cls");
         return;
     }
+    auto it = data.end();
     //getting the memeory address of the end, have to get the previous element that is the end
-    cout << "\n\t\tThe iterator referring to the past-the-end element: " << &*(prev(data.end()));
+    cout << "\n\t\tThe iterator referring to the past-the-end element: " << &it;
     cout << "\n\n";
     system("pause");
     system("cls");
@@ -227,8 +229,9 @@ void Vector::reverseEndIterator(){
         system("cls");
         return;
     }
+    auto it = data.rend();
     //getting the reference of th end, have to get the previous element that is the end
-    cout << "\n\t\tThe reverse iterator pointing to the theoretical element preceding the first element in the vector: " << &*(prev(data.rend()));
+    cout << "\n\t\tThe reverse iterator pointing to the theoretical element preceding the first element in the vector: " << &it;
     cout << "\n\n";
     system("pause");
     system("cls");
@@ -298,49 +301,81 @@ void Vector::eraseRangeIterator(){
 //precondition: going to call the data vector
 //postcondition: going to return an insert a new entry at the iterator.
 void Vector::insertIterator(){
-    //check if vector is empty, if empty, send a warning
-    if (data.empty()) {
-        cout << "\n\t\tThe vector is empty.\n\n";
-        system("pause");
-        system("cls");
-        return;
-    }
     student newStudentInformation;
     string newName;
-    cout << "\n\t\tEnter a new student name: ";
-    getline(cin, newName);
-    //call the setter to set the new name
-    newStudentInformation.setName(newName);
-    int newGradeLevel = inputInteger("\t\tEnter the his/her level (1-Freshman, 2-Sophmore, 3-Junior, or 4-Senior): ", 1, 4);
-    switch (newGradeLevel) {
-    case 1: {
-        newStudentInformation.setGradeLevel("Freshman");
+    //check if vector is empty, if empty, then print the one thing in it 
+    if (data.empty()) {
+        cout << "\n\t\tEnter a new student name: ";
+        getline(cin, newName);
+        //call the setter to set the new name
+        newStudentInformation.setName(newName);
+        int newGradeLevel = inputInteger("\t\tEnter the his/her level (1-Freshman, 2-Sophmore, 3-Junior, or 4-Senior): ", 1, 4);
+        switch (newGradeLevel) {
+        case 1: {
+            newStudentInformation.setGradeLevel("Freshman");
+        }
+              break;
+        case 2: {
+            newStudentInformation.setGradeLevel("Sophmore");
+        }
+              break;
+        case 3: {
+            newStudentInformation.setGradeLevel("Junior");
+        }
+              break;
+        case 4: {
+            newStudentInformation.setGradeLevel("Senior");
+        }
+              break;
+        }
+        double newGPA = inputDouble("\t\tEnter his/her GPA (0.0..4.0): ", 0.0, 4.0);
+        newStudentInformation.setGPA(newGPA);
+        //start of the iterator
+        auto it = data.begin();
+        //insert it after the beginning, call the class function (setters) 
+        //increment so it can be put after the beginning iterator
+        data.insert(it, newStudentInformation);
+        cout << "\n\t\tThe new element has been inserted after the begin iterator.";
+        cout << "\n\n";
+        system("pause");
+        system("cls");
     }
-          break;
-    case 2: {
-        newStudentInformation.setGradeLevel("Sophmore");
+    else {
+        cout << "\n\t\tEnter a new student name: ";
+        getline(cin, newName);
+        //call the setter to set the new name
+        newStudentInformation.setName(newName);
+        int newGradeLevel = inputInteger("\t\tEnter the his/her level (1-Freshman, 2-Sophmore, 3-Junior, or 4-Senior): ", 1, 4);
+        switch (newGradeLevel) {
+        case 1: {
+            newStudentInformation.setGradeLevel("Freshman");
+        }
+              break;
+        case 2: {
+            newStudentInformation.setGradeLevel("Sophmore");
+        }
+              break;
+        case 3: {
+            newStudentInformation.setGradeLevel("Junior");
+        }
+              break;
+        case 4: {
+            newStudentInformation.setGradeLevel("Senior");
+        }
+              break;
+        }
+        double newGPA = inputDouble("\t\tEnter his/her GPA (0.0..4.0): ", 0.0, 4.0);
+        newStudentInformation.setGPA(newGPA);
+        //start of the iterator
+        auto it = data.begin();
+        //insert it after the beginning, call the class function (setters) 
+        //increment so it can be put after the beginning iterator
+        data.insert(++it, newStudentInformation);
+        cout << "\n\t\tThe new element has been inserted after the begin iterator.";
+        cout << "\n\n";
+        system("pause");
+        system("cls");
     }
-          break;
-    case 3: {
-        newStudentInformation.setGradeLevel("Junior");
-    }
-          break;
-    case 4: {
-        newStudentInformation.setGradeLevel("Senior");
-    }
-          break;
-    }
-    double newGPA = inputDouble("\t\tEnter his/her GPA (0.0..4.0): ", 0.0, 4.0);
-    newStudentInformation.setGPA(newGPA);
-    //start of the iterator
-    auto it = data.begin();
-    //insert it after the beginning, call the class function (setters) 
-    //increment so it can be put after the beginning iterator
-    data.insert(++it, newStudentInformation);
-    cout << "\n\t\tThe new element has been inserted after the begin iterator.";
-    cout << "\n\n";
-    system("pause");
-    system("cls");
 }
 //precondition: going to call the data vector
 //postcondition: going to return the content (exchange) of the container by another vector's content of the same type
@@ -363,6 +398,13 @@ void Vector::swapVector(){
 //precondition: going to call the data vector
 //postcondition: going to return the vector in sorted
 void Vector::sortVector(){
+    //check if vector is empty, if empty, send a warning
+    if (data.empty()) {
+        cout << "\n\t\tThe vector is empty.\n\n";
+        system("pause");
+        system("cls");
+        return;
+    }
     //sort the data, by name
     sort(data.begin(), data.end());
     cout << "\n";
@@ -381,7 +423,6 @@ void Vector::mainMenu(){
     string readFileName = "input.dat";
     int index = 0;
 	do {
-        beginning:
         cout << "\n\tVectors are sequence containers representing arrays that can change in size.\n";
         cout << "\n\t1> - Vector's member function";
         cout << "\n\t" << string(82, char(205));
@@ -493,7 +534,5 @@ void Vector::mainMenu(){
             return;
         }
         }
-
 	} while (true);
-
 }
