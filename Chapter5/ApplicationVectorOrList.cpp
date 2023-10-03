@@ -93,15 +93,13 @@ void ApplicationVectorOrList::displayFreq(){
     system("cls");
 }
 
-
-
-
 //precondition: going to print the information
 //postcondition: going to create a menu that accepts 
 void ApplicationVectorOrList::mainMenu(){
 	system("cls");
 	char option;
 	do {
+        beginning:
         cout << "\n\t3> Application using Vector and/or List container";
         cout << "\n\t" << string(82, char(205));
         cout << "\n\t\tA> Add an integer";
@@ -129,6 +127,13 @@ void ApplicationVectorOrList::mainMenu(){
         }
                 break;
         case 'D': {
+            //check if list is empty, if empty, send a warning
+            if (data.empty()) {
+                cout << "\n\t\tcontainer: empty\n\n";
+                system("pause");
+                system("cls");
+                goto beginning;
+            }
             repeatedFreq();
             cout << "\n\t\tcontainer: ";
             displayFreq();
