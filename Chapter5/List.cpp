@@ -361,10 +361,10 @@ void List::swapList() {
     //create a new list that will hold the list 1 data
     list<student> data2;
     cout << "\n\t\tlist (data2) is initially empty.";
-    cout << "\n\n\t\tlist (data) is empty after swapped with vector (data2).";
+    cout << "\n\n\t\tlist (data) is empty after swapped with list (data2).";
     //swap the data, now data2 will have the data
     data.swap(data2);
-    cout << "\n\n\t\tlist (data2) after swapped with vector (data).\n\n";
+    cout << "\n\n\t\tlist (data2) now has "<<data2.size()<<" element(s).\n\n";
     //display the values in the vector, already read the file
     for (auto& i : data2) {
         cout << "\t\t" << i << " " << endl;

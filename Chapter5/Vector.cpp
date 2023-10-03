@@ -178,9 +178,10 @@ void Vector::endIterator(){
         system("cls");
         return;
     }
-    auto it = data.end();
-    //getting the memeory address of the end, have to get the previous element that is the end
-    cout << "\n\t\tThe iterator referring to the past-the-end element: " << &it;
+    //getting the memory right after the last element
+    student* afterLastElement = data.data() + data.size();
+    //getting the memeory address of the end
+    cout << "\n\t\tThe iterator referring to the past-the-end element: " << afterLastElement;
     cout << "\n\n";
     system("pause");
     system("cls");
@@ -229,9 +230,10 @@ void Vector::reverseEndIterator(){
         system("cls");
         return;
     }
-    auto it = data.rend();
+    //calculate the address before the first element, - 1 so it can not get the front() elemen 
+    student* beforeFirstElement = &data.front() - 1; 
     //getting the reference of th end, have to get the previous element that is the end
-    cout << "\n\t\tThe reverse iterator pointing to the theoretical element preceding the first element in the vector: " << &it;
+    cout << "\n\t\tThe reverse iterator pointing to the theoretical element preceding the first element in the vector: " << beforeFirstElement;
     cout << "\n\n";
     system("pause");
     system("cls");
