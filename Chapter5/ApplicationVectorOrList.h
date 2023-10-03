@@ -15,6 +15,7 @@ double inputDouble(string prompt, double startRange, double endRange);
 
 class ApplicationVectorOrList{
 private:
+	//creating list of integers
 	list<int> data;
 public:
 	//defualt constructor

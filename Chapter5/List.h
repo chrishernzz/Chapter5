@@ -14,6 +14,7 @@ double inputDouble(string prompt, double startRange, double endRange);
 
 class List{
 private:
+	//calling the student class
 	list<student> data;
 public:
 	//default constructor

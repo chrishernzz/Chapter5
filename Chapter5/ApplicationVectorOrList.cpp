@@ -36,7 +36,7 @@ void ApplicationVectorOrList::deleteIntegerContainer(int value){
         cout << "\n\t\t" << value << " will be removed from the list.";
     }
     else {
-        cout << "\n\t\tlist does contain " << value<<".";
+        cout << "\n\t\tlist does not contain " << value<<".";
     }
     cout << "\n\n";
     system("pause");
