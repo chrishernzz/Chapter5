@@ -41,7 +41,7 @@ int main()
 //postcondition: it will return an int (the choice of the menu)
 int menuOption() {
 	system("cls");
-	cout << "\n\tCMPR131 Chapter 5: Vector and List Container by Christian Hernandez(9/28/2023)";
+	cout << "\n\tCMPR131 Chapter 5: Vector and List Container by Christian Hernandez(10/4/2023)";
 	cout << "\n\t" << string(100, char(205));
 	cout << "\n\t\t1> Vector container";
 	cout << "\n\t\t2> List container";
