@@ -13,6 +13,8 @@ int inputInteger(string prompt);
 int inputInteger(string prompt, int startRange, int endRange);
 double inputDouble(string prompt, double startRange, double endRange);
 
+//precondition: goin to create a class of List
+//postoncondition: going to pass in an int as the datatype for the list private 
 class ApplicationVectorOrList{
 private:
 	//creating list of integers

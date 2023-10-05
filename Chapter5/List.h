@@ -12,6 +12,8 @@ char inputChar(string prompt, string lookup);
 int inputInteger(string prompt, int startRange, int endRange);
 double inputDouble(string prompt, double startRange, double endRange);
 
+//precondition: goin to create a class of List
+//postoncondition: going to pass in the student class in my private list
 class List{
 private:
 	//calling the student class

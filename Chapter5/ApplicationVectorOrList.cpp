@@ -20,14 +20,11 @@ void ApplicationVectorOrList::deleteIntegerContainer(int value){
     auto it = find(data.begin(), data.end(), value);
     //going to do a if statement cheking if its not at the end of the array(elements), keep checking
     if (it != data.end()) {
-        //keep track how many there is 
-        int count = 0;
         //getting the begin() to the end(), do a if statement to check if the it is equal to the element equals, if equal then erase it
         for (auto it = data.begin(); it != data.end();) {
             //if the it is equal to the element, run this
             if (*it == value) {
                 it = data.erase(it);
-                count++;
             }
             else {
                 ++it;
@@ -134,7 +131,6 @@ void ApplicationVectorOrList::mainMenu(){
                 system("cls");
                 goto beginning;
             }
-            repeatedFreq();
             cout << "\n\t\tcontainer: ";
             displayFreq();
         }

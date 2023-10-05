@@ -8,6 +8,13 @@ List::List(){
 //precondition: going to call the data list
 //postcondition: going to then clear the data list (make it empty)
 void List::clearData(){
+    //check if list is empty, if empty, send a warning
+    if (data.empty()) {
+        cout << "\n\t\tThe list is empty.\n\n";
+        system("pause");
+        system("cls");
+        return;
+    }
     //clearing the data
     data.clear();
     cout << "\n\t\tThe list has been cleared.";

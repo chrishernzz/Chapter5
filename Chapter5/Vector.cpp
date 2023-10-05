@@ -10,6 +10,13 @@ Vector::Vector(){
 //precondition: going to call the data vector
 //postcondition: going to then clear the data vector (make it empty)
 void Vector::clearData(){
+    //check if vector is empty, if empty, send a warning
+    if (data.empty()) {
+        cout << "\n\t\tThe vector is empty.\n\n";
+        system("pause");
+        system("cls");
+        return;
+    }
     //clearing the data
     data.clear();
     cout << "\n\t\tThe vector has been cleared.";

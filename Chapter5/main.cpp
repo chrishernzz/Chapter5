@@ -2,6 +2,11 @@
 //Date: 10/4/2023
 //subscription: CMPR131
 
+//Credit:
+//Part 1 (Vector Student): Saul Merino & Christian Hernandez 
+//Part 2 (List Student): Thanh Tran & John Kim & Joe Bryant
+//Part 3 (Application Vector or List): Erik Santana & Otoniel Torres Bernal
+
 #include<iostream>
 #include"input (1).h"
 #include"Vector.h"
